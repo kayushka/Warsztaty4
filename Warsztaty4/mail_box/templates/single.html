@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <table>
+       <tr><th>Nazwa</th><th>Nazwisko</th><th>Opis</th></tr>
+       <tr><td>{{ name }}</td><td>{{ last_name }}</td><td>{{ description }}</td></tr>
+   </table><br>
+    <table>
+    <tr><th>Miasto</th><th>Ulica</th><th>Nr domu</th><th>Nr ulicy</th></tr>
+    {% for a in adres %}
+        <tr><td>{{ a.city }}</td><td>{{ a.street }}</td><td>{{ a.house_no }}</td><td>{{ a.flat_no }}</td></tr>
+    {% endfor %}
+    </table><br>
+    <table>
+    <tr><th>Numer telefonu</th><th>Typ telefonu</th></tr>
+        {% for p in phone %}
+    <tr><td>{{ p.ph_number }}</td><td>{{ p.get_ph_type_display }}</td></tr>
+    {% endfor %}
+    </table><br>
+    <table>
+    <tr><th>Adres email</th><th>Typ email</th></tr>
+        {% for e in email %}
+    <tr><td>{{ e.email_address }}</td><td>{{ e.get_email_type_display }}</td></tr>
+    {%  endfor %}
+    </table><br>
+
+<form action="/addMember/{{ id }}" ><input type="submit" value="Dodaj do grupy"> </form><br>
+   <form action="/" ><input type="submit" value="Wróć na stronę główną"> </form><br>
+    <form action="/modify/{{ id }}" ><input type="submit" value="Modyfikuj informacje"> </form>
+{% endblock %}

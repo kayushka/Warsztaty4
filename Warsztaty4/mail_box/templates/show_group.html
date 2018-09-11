@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <table>
+       <tr><th>Nazwa</th><th>Imię</th><th>Nazwisko</th></tr>
+       <tr><td>{{ name }}</td>
+       {% for g in person %}
+    <td>{{ g.name }}</td><td>{{ g.last_name }}</td>
+    {% endfor %}</tr>
+    </table><br>
+
+   <form action="/" ><input type="submit" value="Wróć na stronę główną"> </form><br>
+{% endblock %}

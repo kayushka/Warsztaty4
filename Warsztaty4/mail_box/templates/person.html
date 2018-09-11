@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>Lista osób</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+            <tr><th>Imię</th><th>Nazwisko</th><th>Opis</th></tr>
+            {% for r in people %}
+                <td><a href = show/{{ r.id }}> {{ r.name }} </a>
+             </td><td>
+                {{ r.last_name }}
+                </td><td>
+                {{ r.description }}
+                </td><td>
+            {{ r.city }}
+            </td><td>
+            {{ r.street }}
+            </td><td>
+            {{ r.house_no }}
+            </td><td>
+            {{ r.flat_no }}
+            </td><td>
+                <a href = modify/{{r.id}}> Zmień </a>
+            </td><td>
+                <a href = delete/{{r.id}}> Usuń </a>
+            </td></tr>
+            {% endfor %}
+        </table>
+    <form action="/search" ><input type="submit" value="Szukaj"> </form><br>
+    <form action="/new" ><input type="submit" value="Dodaj nową osobę"> </form><br>
+    <form action="/group_list" ><input type="submit" value="Lista grup"> </form><br>
+    <form action="/new_group" ><input type="submit" value="Dodaj nową grupę"> </form>
+{% endblock %}

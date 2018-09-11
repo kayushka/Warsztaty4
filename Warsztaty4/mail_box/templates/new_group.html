@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Dodaj nową grupę</h1>
+{% endblock %}
+
+
+{% block content %}
+<form action="", method="POST">
+   {% csrf_token %}
+   <label> Nazwa grupy:
+       <input type="text"
+              name="name">
+   </label><br>
+   <label>
+       <input type="submit" value="Dodaj">
+   </label>
+</form>
+{% endblock %}

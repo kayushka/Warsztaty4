@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block header %}
+<h1>Zmodyfikuj osobę</h1>
+{% endblock %}
+
+
+{% block content %}
+<form action="" method="POST">
+   {% csrf_token %}
+   <label> Imię:
+       <input type="text"
+              name="name"
+       value="{{ name }}">
+   </label><br>
+    <label> Nazwisko:
+       <input type="text"
+              name="last_name"
+       value="{{ last_name }}">
+   </label><br>
+   <label> Opis:
+       <input type="text"
+              name="description"
+       value="{{ description }}">
+   </label><br>
+   <label>
+       <input type="submit" value="Zmień">
+   </label>
+</form>
+
+    <form action="/addAddress/{{ id }}" method="POST">
+   {% csrf_token %}
+   <label> Miasto:
+       <input type="text"
+              name="city"
+       value="{{ city }}">
+   </label><br>
+    <label> Ulica:
+       <input type="text"
+              name="street"
+       value="{{ street }}">
+   </label><br>
+   <label> Nr domu:
+       <input type="text"
+              name="house_no"
+       value="{{ house_no }}">
+   </label><br>
+        <label> Nr mieszkania:
+       <input type="text"
+              name="flat_no"
+       value="{{ flat_no }}">
+   </label><br>
+   <label>
+       <input type="submit" value="Zmień">
+   </label>
+</form>
+
+    <form action="/addEmail/{{ id }}" method="POST">
+   {% csrf_token %}
+   <label> Email:
+       <input type="text"
+              name="email_address"
+       value="{{ email_address }}">
+   </label><br>
+    <select name="email_type">
+       <option
+               value="0">brak informacji</option>
+            <option
+               value="1">prywatny</option>
+            <option
+               value="2">służbowy</option>
+            <option
+               value="3">inny</option>
+            </select><br>
+       <input type="submit" value="Zmień">
+   </label>
+</form>
+
+    <form action="/addPhone/{{ id }}" method="POST">
+   {% csrf_token %}
+   <label> Numer telefonu:
+       <input type="text"
+              name="ph_number"
+       value="{{ ph_number }}">
+   </label><br>
+    <label> Typ:
+        <select name="ph_type">
+       <option
+               value="0">brak informacji</option>
+            <option
+               value="1">komórkowy</option>
+            <option
+               value="2">domowy</option>
+            <option
+               value="3">służbowy</option>
+            <option
+               value="4">inny</option>
+            </select>
+   </label><br>
+        <label>
+       <input type="submit" value="Zmień">
+   </label>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+<form action="" method="POST">
+ {% csrf_token %}
+{% for p in groups %}
+<input type="checkbox" name="name" value="{{ p.id }}">{{ p.name }}<br>
+{% endfor %}
+<input type="submit" value="Dodaj">
+</form></table></form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{{  }}</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="/group_list" method="POST">
+    <input type="text" name="search" placeholder="Podaj imię lub nazwisko">
+    <input type="submit" value="Wyszukaj">
+    <table>
+            <tr><th>Nazwa grupy</th></tr>
+        {% for g in group %}
+                <td><a href = show_group/{{ g.id }}> {{ g.name }} </a>
+            </td></tr>
+            {% endfor %}
+        </table>
+    </form>
+{% endblock %}
